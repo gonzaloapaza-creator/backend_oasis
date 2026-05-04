@@ -102,7 +102,7 @@ router.post('/check-availability', [
       LEFT JOIN habitaciones h ON th.id = h.tipo_habitacion_id
       WHERE th.estado = true
         AND th.capacidad_maxima >= $1
-        ${room_type_id ? 'AND th.id = $3' : ''}
+        ${room_type_id ? 'AND th.id = $4' : ''}
         AND NOT EXISTS (
           SELECT 1 FROM reserva_detalles rd
           JOIN reservas r ON rd.reserva_id = r.id
